@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎使用我们的服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.53);
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .question-section {
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        .question h2 {
+            font-size: 18px;
+            color: #333333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .question p {
+            font-size: 14px;
+            color: #333333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+        }
+
+        .success-section {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .success-section h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .success-section p {
+            opacity: 0.9;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            color: #28a745;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .register-section {
+            padding: 30px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .register-section h3 {
+            font-size: 18px;
+            color: #333333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin-bottom: 15px;
+        }
+
+        .register-section input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            transition: border-color 0.2s;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .register-section input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn-secondary {
+            background: #667eea;
+            color: #ffffff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+            width: 100%;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        .login-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            background: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .agree-btn {
+            background: #28a745;
+            color: #ffffff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin: 10px;
+        }
+
+        .agree-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .disagree-btn {
+            background: #dc3545;
+            color: #ffffff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin: 10px;
+        }
+
+        .disagree-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>欢迎使用我们的服务</h1>
+            <p>专业、可靠、值得信赖</p>
+        </div>
+
+        <div class="page active" id="page1">
+            <div class="question-section">
+                <div class="question">
+                    <h2>问题1</h2>
+                    <p>本服务仅提供专业咨询服务，不涉及任何非法或违规内容。您同意遵守相关规定吗？</p>
+                </div>
+
+                <div class="button-group">
+                    <button class="agree-btn" onclick="goToPage2()">同意</button>
+                    <button class="disagree-btn" onclick="alert('感谢您的访问')">不同意</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="page2">
+            <div class="question-section">
+                <div class="question">
+                    <h2>问题2</h2>
+                    <p>您确认已年满18周岁，并且了解本服务的使用条款吗？</p>
+                </div>
+
+                <div class="button-group">
+                    <button class="agree-btn" onclick="goToPage3()">同意</button>
+                    <button class="disagree-btn" onclick="goToPage1()">不同意</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="page3">
+            <div class="success-section">
+                <h2>恭喜！</h2>
+                <p>点击下方按钮，立即了解更多服务详情</p>
+                <button class="btn-primary" onclick="window.location.href='https://t.me/jss88669'">立即了解</button>
+            </div>
+        </div>
+
+        <div class="page" id="page4">
+            <div class="register-section">
+                <h3>注册会员</h3>
+                <input type="text" placeholder="填写邀请码完成注册，即可进入专区">
+                <button class="btn-secondary" onclick="alert('注册成功！')">立即注册</button>
+                <a href="#" class="login-link">已有账号？去登录</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            本页面内容仅适合18岁及以上用户
+        </div>
+    </div>
+
+    <script>
+        function goToPage1() {
+            document.getElementById('page1').classList.add('active');
+            document.getElementById('page2').classList.remove('active');
+            document.getElementById('page3').classList.remove('active');
+            document.getElementById('page4').classList.remove('active');
+        }
+
+        function goToPage2() {
+            document.getElementById('page1').classList.remove('active');
+            document.getElementById('page2').classList.add('active');
+            document.getElementById('page3').classList.remove('active');
+            document.getElementById('page4').classList.remove('active');
+        }
+
+        function goToPage3() {
+            document.getElementById('page1').classList.remove('active');
+            document.getElementById('page2').classList.remove('active');
+            document.getElementById('page3').classList.add('active');
+            document.getElementById('page4').classList.remove('active');
+        }
+
+        function goToPage4() {
+            document.getElementById('page1').classList.remove('active');
+            document.getElementById('page2').classList.remove('active');
+            document.getElementById('page3').classList.remove('active');
+            document.getElementById('page4').classList.add('active');
+        }
+    </script>
+</body>
+</html>
